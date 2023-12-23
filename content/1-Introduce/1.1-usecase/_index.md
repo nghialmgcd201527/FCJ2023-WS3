@@ -1,26 +1,15 @@
 ---
-title : "Preparing VPC and EC2"
-date : "`r Sys.Date()`"
-weight : 1
-chapter : false
-pre : " <b> 2.1 </b> "
+title: "Use Cases"
+date: "`r Sys.Date()`"
+weight: 1
+chapter: false
+pre: " <b> 1.1 </b> "
 ---
 
-In this step, we will need to create a VPC with 2 public / private subnets. Then create 1 EC2 Instance Linux located in the public subnet, 1 EC2 Instance Windows located in the private subnet.
+In this section, we'll learn the basics about the Edge Compute features we'll explore in this workshop. It will provide us with background knowledge and content related to labs.
 
-The architecture overview after you complete this step will be as follows:
+Before introducing [AWS Edge computes](/en/1-introduce/1.2-edge/), we need to have some knowledge about the different techniques used in this workshop to redirect pages from one page to another. different from user requirements. It's called **Redirects** and **Rewrites**.
 
-![VPC](/images/arc-01.png)
+- **Redirects:** URL redirections take the browser to a new resource or another website. Common HTTP response codes are HTTP 301, HTTP 302 and HTTP 308. After the browser receives the response from the server, it will fetch content from the URL returned by the server. For more information, see [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Redirections). There are some use cases where customers want Redirects including situations where they need to route users to a new domain or even when redirecting users to the main website, redirecting to send users to a page based on device or geographical location. theirs and other cases that we will learn about in this workshop.
 
-To learn how to create EC2 instances and VPCs with public/private subnets, you can refer to the lab:
-  - [About Amazon EC2](https://000004.awsstudygroup.com/en/)
-  - [Works with Amazon VPC](https://000003.awsstudygroup.com/en/)
-
-
-### Content
-  - [Create VPC](2.1.1-createvpc/)
-  - [Create Public Subnet](2.1.2-createpublicsubnet/)
-  - [Create Private Subnet](2.1.3-createprivatesubnet/)
-  - [Create security group](2.1.4-createsecgroup/)
-  - [Create public Linux server](2.1.5-createec2linux/)
-  - [Create private Windows server](2.1.6-createec2windows/)
+- **Rewrites:** URL rewrites are also a technique used to store a different content than what the user requested, however it will not handle a full redirect. Instead, it will just serve another content from the backend of the website or application without the user knowing what is going on. For example, we can think of the browser sending a GET request to fetch content for "**_/index.html_**", but we can modify the URL according to this request and make the backend return content from "**_/index_rewrite.html_**". This will essentially provide different content than the original request without the server sending the user to a completely different URL/page. Some use cases of URL rewrite are cases where it is necessary to rearrange characters from the URL, in this case, it will retrieve the content and not change the URL which is very important so that the user experience can be simple. simpler and other cases that we will learn about in this workshop.

@@ -1,23 +1,33 @@
 ---
-title : "Manage session logs"
-date : "`r Sys.Date()`"
-weight : 4
-chapter : false
-pre : " <b> 4. </b> "
+title: "Cleanup"
+date: "`r Sys.Date()`"
+weight: 4
+chapter: false
+pre: " <b> 4. </b> "
 ---
 
+#### CloudFormation
 
-With Session Manager, we can view the history of connections to instances through **Session history**. However, we have not seen the details of the commands used in a session.
+1. We go to [CloudFormation Console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks?filteringText=&filteringStatus=active&viewNested=true )
+2. We will see a stack named **edge-redirect-workshop** created from the CloudFormation template. We select that stack and click on the **Delete** button at the top right.
 
-![S3](/images/4.s3/001-s3.png)
+![VPC](/images/4.clean/4-1new.png)
 
-In this section, we will proceed to create an S3 bucket and configure the session logs feature to see the details of the commands used in the session.
+Wait a few minutes and we have successfully deleted CloudFormation and the resources created by it while we started the workshop.
 
-![port-fwd](/images/arc-log.png) 
+#### Lambda Function
 
-### Content:
+1. Let's go to [Lambda Console](https://us-east-1.console.aws.amazon.com/lambda/home?region=us-east-1#/functions)
+2. We will see all the Lambda Functions created in this workshop. Tick all functions then click on the **Actions** button at the top right and select **Delete.**
 
-   - [Update IAM Role](./4.1-updateiamrole/)
-   - [Create **S3 Bucket**](./4.2-creates3bucket/)
-   - [Create S3 Gateway endpoint](./4.3-creategwes3)
-   - [Configure **Session logs**](./4.4-configsessionlogs/)
+![VPC](/images/4.clean/4-2new.png)
+
+We enter `delete` in the **Confirm** box and finally press the **Delete** button to delete. So we have successfully deleted all the Lambda Functions created in this workshop.
+
+![VPC](/images/4.clean/4-3new.png)
+
+{{% notice tip %}}
+If you receive the warning **Deleting Lambda@Edge functions and replicas** when deleting a Lambda Function, please see [this document](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide /lambda-edge-delete-replicas.html) and follow to delete successfully.
+{{% /notice %}}
+
+So we have successfully completed this workshop. Thank you for your participation.

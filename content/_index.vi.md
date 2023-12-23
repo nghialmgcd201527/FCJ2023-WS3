@@ -1,5 +1,5 @@
 ---
-title: "Using Edge Functions to handle Rewrites and Redirects"
+title: "Sử dụng Edge Functions để xử lí Rewrites and Redirects"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: false
